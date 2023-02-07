@@ -1,0 +1,41 @@
+version "3.9"
+
+services:
+  db:
+    container_name: db
+    image: mongo:latest
+    command: mongod --auth
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongodb
+      MONGO_INITDB_ROOT_PASSWORD: mongodb
+      MONGO_INITDB_DATABAS: mongodb
+      MONGODB_DATA_DIR: /data/db
+      MONGODB_LOG_DIR: /dev/null
+    volumes:
+      - ./data:/data/db
+    networks:
+      - backend
+
+  backend:
+    container_name: backend
+    build: ./backend
+    environment:
+      MONGODB_DATABASE: mongodb
+      MONGODB_USERNAME: mongodb
+      MONGODB_PASSWORD: mongodb
+      MONGODB_HOSTNAME: mongodb
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app/backend/
+    networks:
+      - frontend
+      - backend
+    
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
