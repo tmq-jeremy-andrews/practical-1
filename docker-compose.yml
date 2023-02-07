@@ -33,6 +33,18 @@ services:
     networks:
       - frontend
       - backend
+        
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app/frontend/
+    depends_on:
+      - backend
+    networks:
+      - frontend
     
 networks:
   frontend:
