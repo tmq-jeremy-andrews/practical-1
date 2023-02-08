@@ -44,7 +44,7 @@ const Signup = () => {
     >
       <Grid item xs={3}>
         <Paper variant="outlined" sx={{ p: 1 }}>
-          <div className="login-wrapper">
+          <div className="signup-wrapper">
             <Typography variant="h4" sx={{ mt: 2, ml: 1, mr: 1 }}>
               Sign Up
             </Typography>
