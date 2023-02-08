@@ -14,10 +14,12 @@ import {
   Button,
   Grid,
 } from "@mui/material";
+import { useLogout } from "../hooks/useLogout";
 
 const Dashboard = () => {
   const [users, setUsers] = useState(null);
   const { user } = useAuthContext();
+  const { logout } = useLogout();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -42,6 +44,10 @@ const Dashboard = () => {
     return <Navigate to="/login" />;
   }
 
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <Box container sx={{ p: 1, bgcolor: "primary.main", minHeight: "100vh" }}>
       <Paper sx={{ pl: 5, pb: 5, pr: 5, pt: 2, bgcolor: "#f7f7f7" }}>
@@ -53,7 +59,9 @@ const Dashboard = () => {
           alignItems="center"
         >
           <Typography variant="h3">Users</Typography>
-          <Button variant="contained">Log Out</Button>
+          <Button variant="contained" onClick={handleLogout}>
+            Log Out
+          </Button>
         </Box>
         <TableContainer component={Paper}>
           <Table aria-label="user table">
