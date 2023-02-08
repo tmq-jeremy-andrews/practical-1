@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useSignup } from "../hooks/useSignup";
 
 const Signup = () => {
@@ -31,6 +32,9 @@ const Signup = () => {
       />
 
       <button disabled={isLoading}>Sign Up</button>
+      <p>
+        Already have an account? <Link to="/login">Log In</Link>
+      </p>
       {error && <div>{error}</div>}
       {message && <div>{message}</div>}
     </form>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -38,6 +38,9 @@ const Login = () => {
       />
 
       <button disabled={isLoading}>Log In</button>
+      <p>
+        Don't have an account? <Link to="/signup">Sign Up</Link>
+      </p>
       {error && <div>{error}</div>}
       {message && <div>{message}</div>}
     </form>
