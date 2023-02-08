@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { Navigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [users, setUsers] = useState(null);
@@ -23,6 +24,10 @@ const Dashboard = () => {
       fetchUsers();
     }
   }, [user]);
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <div className="users">

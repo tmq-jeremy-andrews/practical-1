@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
+import { useAuthContext } from "../hooks/useAuthContext";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error, message, isLoading } = useLogin();
+  const { user } = useAuthContext();
+
+  // Redirect user to homepage if they are already logged in
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
