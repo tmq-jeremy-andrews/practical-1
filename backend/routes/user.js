@@ -13,10 +13,7 @@ const {
   deleteUser,
 } = require("../controllers/userController");
 
-// Login
 router.post("/login", loginUser);
-
-// Signup
 router.post("/signup", signupUser);
 
 // Require auth for routes after this line
