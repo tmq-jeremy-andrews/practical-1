@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useSignup } from "../hooks/useSignup";
+import { useAuthContext } from "../hooks/useAuthContext";
 import {
   Typography,
   TextField,
@@ -16,6 +17,12 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const { signup, error, message, isLoading } = useSignup();
+  const { user } = useAuthContext();
+
+  // Redirect user to homepage if they are already logged in
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
