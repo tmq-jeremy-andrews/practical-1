@@ -5,14 +5,14 @@ export const useSignup = () => {
   const [isLoading, setIsLoading] = useState(null);
   const [message, setMessage] = useState(null);
 
-  const signup = async (email, password) => {
+  const signup = async (email, password, confirmPassword) => {
     setIsLoading(true);
     setError(null);
 
     const response = await fetch("/api/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, confirmPassword }),
     });
 
     const json = await response.json();

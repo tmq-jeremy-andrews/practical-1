@@ -20,14 +20,18 @@ const userSchema = new Schema(
 );
 
 // Static signup method
-userSchema.statics.signup = async function (email, password) {
+userSchema.statics.signup = async function (email, password, confirmPassword) {
   // Validation
-  if (!email || !password) {
+  if (!email || !password || !confirmPassword) {
     throw Error("All fields are required.");
   }
 
   if (!validator.isEmail(email)) {
     throw Error("Email is not valid.");
+  }
+
+  if (password !== confirmPassword) {
+    throw Error("Passwords do not match.");
   }
 
   /**
