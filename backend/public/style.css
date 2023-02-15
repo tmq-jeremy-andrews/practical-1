@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap');
+
+body {
+  margin: 0;
+  background: #efe8d4;
+  font-family: "JetBrains Mono", monospace;
+  color: #012a36;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: #849901;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header img {
+  margin: 32px;
+  box-shadow: 10px 10px #efe8d4;
+  min-width: 180px;
+  min-height: 180px;
+}
+
+header h1.title {
+  color: #278ad2;
+}
+
+header h2.subtitle {
+  color: #93a0a0;
+  margin-top: -20px;
+}
+
+header ul,header li {
+  list-style-type: none;
+  list-style-position: inside;
+  margin: 0;
+  padding: 0;
+}
+
+div.container {
+  background: #fcf7e3;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+img.tile {
+  border-radius: 25px;
+  border: 5px solid #dc332e;
+  max-width: 20vh;
+  max-height: 20vh;
+}
+
+article.card {
+  border: 2px solid #2ba199;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 10px;
+}
+
+article.card h2 {
+  color: #2ba199;
+  margin-top: 0;
+}
+
+article.item {
+  border-left: 4px solid #849901;
+  padding-left: 10px;
+  transition: 0.3s;
+}
+
+article.item h3 {
+  color: #849901;
+  margin-bottom: 0;
+  transition: 0.3s;
+}
+
+article.item h4 {
+  color: #2ba199;
+  margin-top: 0;
+}
+
+article.item:hover {
+  background-color: #efe8d4;
+  border-left: 24px solid #ca4b17;
+}
+
+article.item:hover h3 {
+  color: #ca4b17;
+}
+
+video {
+  width: 45vw;
+  min-width: 300px;
+}
